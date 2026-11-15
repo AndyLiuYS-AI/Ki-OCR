@@ -14,7 +14,7 @@ Ki-OCR is a formula-enhanced document parsing model distilled from [OXR-1.0](htt
 
 | Model Type | Methods | Size | Overall ↑ | Text<sup>Edit</sup> ↓ | Formula<sup>CDM</sup> ↑ | Table<sup>TEDS</sup> ↑ | Table<sup>TEDS-S</sup> ↑ | Read Order<sup>Edit</sup> ↓ |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Ki-OCR | Specialized VLMs | 1.3B | **97.2683** | 0.02421 | **97.6544** | 96.5713 | 98.4169 | 0.1221 |
+| Ki-OCR | Specialized VLMs | 1.3B | **97.2812** | 0.02420 | **97.6332** | 96.6306 | 98.4685 | 0.1224 |
 
 ## Reproduce on OmniDocBench
 
