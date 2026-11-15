@@ -1,0 +1,38 @@
+# Modified for Ki-OCR (2026-11-15); derived from the SoMark upstream project.
+[project]
+name = "ki-ocr"
+version = "0.1.0"
+description = "Ki-OCR document parsing inference service"
+readme = "README.md"
+license = "LicenseRef-OXR"
+license-files = ["LICENSE", "LICENSE-APACHE-2.0.txt", "NOTICE"]
+requires-python = ">=3.10"
+dependencies = [
+    "typer",
+    "fastapi",
+    "uvicorn[standard]",
+    "python-multipart",
+    "openai",
+    "sopdf>=0.2.0",
+    "opencv-python",
+    "pydantic-settings",
+    "PyYAML",
+    "httpx",
+]
+
+[project.scripts]
+ki_ocr = "ki_ocr.cli.main:app"
+
+[project.urls]
+"Upstream source" = "https://github.com/SoMarkAI/OXR"
+"Hugging Face" = "https://huggingface.co/AndyLiuys/Ki-OCR"
+
+[build-system]
+requires = ["setuptools>=77.0.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["ki_ocr*"]
+
+[tool.setuptools.package-data]
+"ki_ocr.server" = ["demo/**/*", "demo/*"]

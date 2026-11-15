@@ -1,0 +1,5 @@
+<!-- Modified for Ki-OCR (2026-11-15); derived from the SoMark upstream project. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 210">
+  <rect width="210" height="210" rx="28" fill="#111"/>
+  <text x="105" y="139" text-anchor="middle" font-family="sans-serif" font-weight="bold" font-size="100" fill="#fff">Ki</text>
+</svg>
