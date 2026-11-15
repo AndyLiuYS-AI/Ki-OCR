@@ -25,7 +25,7 @@ Requirements: Linux, Docker, NVIDIA Container Toolkit and a BF16-capable NVIDIA 
 Clone the repository:
 
 ```bash
-git clone https://github.com/AndyLiuYS/Ki-OCR.git
+git clone https://github.com/AndyLiuYS-AI/Ki-OCR.git
 cd Ki-OCR
 ```
 

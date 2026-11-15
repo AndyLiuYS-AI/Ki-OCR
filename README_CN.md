@@ -25,7 +25,7 @@ Ki-OCR 是基于 [OXR-1.0](https://huggingface.co/SoMarkAI/OXR-1.0) 蒸馏得到
 克隆仓库：
 
 ```bash
-git clone https://github.com/AndyLiuYS/Ki-OCR.git
+git clone https://github.com/AndyLiuYS-AI/Ki-OCR.git
 cd Ki-OCR
 ```
 
