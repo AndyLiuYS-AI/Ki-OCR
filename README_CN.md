@@ -4,7 +4,7 @@
 
 **[Powered by SoMark OXR](https://github.com/SoMarkAI/OXR)**
 
-Ki-OCR 是基于 [OXR-1.0](https://huggingface.co/SoMarkAI/OXR-1.0) 蒸馏得到的公式增强型文档解析模型，旨在提升数学公式识别能力，同时保持整体文档解析性能。
+Ki-OCR 是基于 [OXR-1.0](https://huggingface.co/SoMarkAI/OXR-1.0) 蒸馏得到的公式增强型文档解析模型，旨在提升公式识别能力，同时保持整体文档解析性能。
 
 **训练数据（IBEM500）。** IBEM500 构建自公开数据集 [IBEM-v1-cropped](https://huggingface.co/datasets/deepcopy/IBEM-v1-cropped)，该数据集源自 [IBEM](https://doi.org/10.5281/zenodo.7963703)，包含科学文献中的数学公式及对应的 LaTeX 标注。IBEM-v1-cropped 按照标注框从原始文档页面裁剪单个公式，并区分独立公式（`isolated`）与行内公式（`embedded`）。我们选取其中 500 张真实的独立公式图像用于训练。IBEM500 的名称来源于 500 条训练样本。
 

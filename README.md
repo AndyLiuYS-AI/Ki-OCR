@@ -4,11 +4,11 @@
 
 **[Powered by SoMark OXR](https://github.com/SoMarkAI/OXR)**
 
-Ki-OCR is a formula-enhanced document parsing model distilled from [OXR-1.0](https://huggingface.co/SoMarkAI/OXR-1.0). It aims to improve mathematical formula recognition while preserving overall document parsing quality.
+Ki-OCR is a formula-enhanced document parsing model distilled from [OXR-1.0](https://huggingface.co/SoMarkAI/OXR-1.0). It aims to improve formula recognition ability while preserving overall document parsing quality.
 
-**Training data (IBEM500).** We construct IBEM500 from the publicly available [IBEM-v1-cropped dataset](https://huggingface.co/datasets/deepcopy/IBEM-v1-cropped), a cropped version of the [IBEM dataset](https://doi.org/10.5281/zenodo.7963703). IBEM contains mathematical expressions from scientific documents with their LaTeX annotations. IBEM-v1-cropped extracts individual formula images using their annotated bounding boxes, distinguishing displayed (`isolated`) from inline (`embedded`) formulas. We select 500 real displayed-formula images for training. The name IBEM500 refers to the 500 training samples.
+**Training data (IBEM500).** We construct IBEM500 from the public dataset [IBEM-v1-cropped](https://huggingface.co/datasets/deepcopy/IBEM-v1-cropped), a cropped version of [IBEM](https://doi.org/10.5281/zenodo.7963703). IBEM contains mathematical expressions from scientific documents with their LaTeX annotations. IBEM-v1-cropped extracts individual formula images using their annotated bounding boxes, distinguishing displayed (`isolated`) from inline (`embedded`) formulas. We select 500 real displayed-formula images for training. The name IBEM500 refers to the 500 training samples.
 
-**On-Policy Distillation (OPD).** We use OXR-1.0 as the student and MiniCPM-OCR 1.0 as the teacher. The student generates its own token sequences from formula images, and the teacher provides token-level probability supervision on the student-generated prefixes. To accommodate the different vocabularies, we align candidate tokens and minimize reverse KL divergence over the aligned top-64 candidates. We fine-tune the student using LoRA and merge the adapted weights for inference. The original architecture and document parsing pipeline are retained.
+**On-Policy Distillation (OPD).** We use OXR-1.0 as the student model and MiniCPM-OCR 1.0 as the teacher model. The student model generates its own token sequences from formula images, and the teacher model provides token-level probability supervision on the student-generated prefixes. To accommodate the different vocabularies, we align candidate tokens and minimize reverse KL divergence over the aligned top-64 candidates. We fine-tune the student model using LoRA and merge the adapted weights for inference. The original architecture and document parsing pipeline are retained.
 
 ## Results on OmniDocBench
 
@@ -51,7 +51,7 @@ docker run -d --name ki-ocr --gpus '"device=0"' --ipc=host \
   ki_ocr:1.0
 ```
 
-Select an available GPU by replacing `device=0`.
+Replace `device=0` with the index of an available GPU.
 
 Check the service logs:
 
