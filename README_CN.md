@@ -8,7 +8,7 @@ Ki-OCR 是基于 [OXR-1.0](https://huggingface.co/SoMarkAI/OXR-1.0) 蒸馏得到
 
 **训练数据（IBEM500）。** IBEM500 构建自公开数据集 [IBEM-v1-cropped](https://huggingface.co/datasets/deepcopy/IBEM-v1-cropped)，该数据集源自 [IBEM](https://doi.org/10.5281/zenodo.7963703)，包含科学文献中的数学公式及对应的 LaTeX 标注。IBEM-v1-cropped 按照标注框从原始文档页面裁剪单个公式，并区分独立公式（`isolated`）与行内公式（`embedded`）。我们选取其中 500 张真实的独立公式图像用于训练。IBEM500 的名称来源于 500 条训练样本。
 
-**在线策略蒸馏（OPD）。** 我们以 OXR-1.0 为学生模型、[MiniCPM-OCR-1.0](https://huggingface.co/openbmb/MiniCPM-OCR-1.0) 为教师模型。学生模型根据公式图像自主生成 token 序列，教师模型在学生生成的前缀上提供逐 token 的概率分布监督。针对两个模型词表不同的问题，对候选 token 进行对齐，并在对齐后的 Top-64 候选集合上计算反向 KL 散度。训练采用 LoRA，合并适配后的权重用于推理，保留原始模型架构和文档解析流程。
+**在线策略蒸馏（OPD）。** 我们以 [OXR-1.0](https://huggingface.co/SoMarkAI/OXR-1.0) 为学生模型，以 [MiniCPM-OCR 1.0](https://huggingface.co/openbmb/MiniCPM-OCR-1.0) 为教师模型。学生模型根据公式图像自主生成 token 序列，教师模型在学生生成的前缀上提供逐 token 的概率分布监督。针对两个模型词表不同的问题，对候选 token 进行对齐，并在对齐后的 Top-64 候选集合上计算反向 KL 散度。训练采用 LoRA，合并适配后的权重用于推理，保留原始模型架构和文档解析流程。
 
 ## OmniDocBench 实验结果
 
