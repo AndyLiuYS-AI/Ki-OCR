@@ -73,8 +73,12 @@ Replace `/path/to/OmniDocBench` with the actual dataset path. The directory shou
 
 The script completes full inference and automatically runs the [official OmniDocBench evaluator](https://github.com/opendatalab/OmniDocBench). The Markdown predictions, detailed evaluation results and `summary.json` are saved in the evaluation directory (`omnidocbench_eval_*`) printed at the end of the run.
 
-## License and attribution
+## License and Attribution
 
-Ki-OCR is derived from [OXR](https://github.com/SoMarkAI/OXR) and retains its original inference pipeline. See [LICENSE](LICENSE), [Apache License 2.0](LICENSE-APACHE-2.0.txt) and [NOTICE](NOTICE). The model weights follow the license in the [model repository](https://huggingface.co/AndyLiuys/Ki-OCR).
+Ki-OCR is derived from [OXR-1.0](https://github.com/SoMarkAI/OXR) and retains its original model architecture and core document parsing pipeline.
+
+This project is distributed under the [OXR Open Source License](LICENSE), which is based on the [Apache License 2.0](LICENSE-APACHE-2.0.txt) with additional terms. Third-party attributions are provided in [NOTICE](NOTICE).
+
+The model weights are subject to the original [OXR-1.0 model license](https://huggingface.co/SoMarkAI/OXR-1.0/blob/main/LICENSE). See the [Ki-OCR model repository](https://huggingface.co/AndyLiuys/Ki-OCR) for details.
 
 **[Powered by SoMark OXR](https://github.com/SoMarkAI/OXR)**

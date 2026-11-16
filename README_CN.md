@@ -75,6 +75,10 @@ DATA="/path/to/OmniDocBench" bash eval_omnidocbench.sh
 
 ## 许可证与致谢
 
-Ki-OCR 基于 [OXR](https://github.com/SoMarkAI/OXR) 蒸馏，保留原始推理流程。请参阅 [原始许可证](LICENSE)、[Apache 2.0 许可证](LICENSE-APACHE-2.0.txt) 及[第三方声明](NOTICE)。模型权重遵循 [模型仓库](https://huggingface.co/AndyLiuys/Ki-OCR) 中的许可证。
+Ki-OCR 基于 [OXR-1.0](https://github.com/SoMarkAI/OXR) 开发，保留其原始模型架构和核心文档解析流程。
+
+本项目遵循 [OXR 开源许可协议](LICENSE)，该协议基于 [Apache 2.0 许可证](LICENSE-APACHE-2.0.txt)，并包含附加条款。第三方署名及版权声明见 [NOTICE](NOTICE)。
+
+模型权重遵循原始 [OXR-1.0 模型许可协议](https://huggingface.co/SoMarkAI/OXR-1.0/blob/main/LICENSE)，详情请参阅 [Ki-OCR 模型仓库](https://huggingface.co/AndyLiuys/Ki-OCR)。
 
 **[Powered by SoMark OXR](https://github.com/SoMarkAI/OXR)**
