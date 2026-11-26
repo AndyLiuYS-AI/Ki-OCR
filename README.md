@@ -14,7 +14,10 @@ Ki-OCR is a formula-enhanced document parsing model distilled from [OXR-1.0](htt
 
 | Model Type | Methods | Size | Overall ↑ | Text<sup>Edit</sup> ↓ | Formula<sup>CDM</sup> ↑ | Table<sup>TEDS</sup> ↑ | Table<sup>TEDS-S</sup> ↑ | Read Order<sup>Edit</sup> ↓ |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Ki-OCR | Specialized VLMs | 1.3B | **97.2812** | 0.02420 | **97.6332** | 96.6306 | 98.4685 | 0.1224 |
+| Ki-OCR | Specialized VLMs | 1.3B | 97.2812 | 0.0242 | 97.6332 | 96.6306 | 98.4685 | 0.1224 |
+| OXR-1.0 | Specialized VLMs | 1.3B | 97.1832 | 0.0251 | 97.4449 | 96.6167 | 98.4395 | 0.1214 |
+
+*Source: OXR-1.0 results are taken from the [issue submitted by the OXR team to the official OmniDocBench repository](https://github.com/opendatalab/OmniDocBench/issues/264); Ki-OCR results are from our local evaluation.*
 
 ## Reproduce on OmniDocBench
 
@@ -72,6 +75,26 @@ DATA="/path/to/OmniDocBench" bash eval_omnidocbench.sh
 Replace `/path/to/OmniDocBench` with the actual dataset path. The directory should contain `OmniDocBench.json` and `images/`.
 
 The script completes full inference and automatically runs the [official OmniDocBench evaluator](https://github.com/opendatalab/OmniDocBench). The Markdown predictions, detailed evaluation results and `summary.json` are saved in the evaluation directory (`omnidocbench_eval_*`) printed at the end of the run.
+
+## Additional Benchmark Results
+
+### DocParsingBench
+
+| Model | Overall ↑ | Text ↑ | Formula ↑ | Table ↑ |
+| --- | ---: | ---: | ---: | ---: |
+| Ki-OCR | 88.41 | 90.98 | 87.12 | 80.21 |
+| OXR-1.0 | 87.76 | 90.60 | 85.76 | 80.04 |
+
+*Source: OXR-1.0 results are taken from the [official OXR benchmark report](https://github.com/SoMarkAI/OXR/blob/main/docs/benchmark.md); Ki-OCR results are from our local evaluation.*
+
+### olmOCR-bench
+
+| Model | Overall ↑ | ArXiv Math ↑ | Baseline ↑ | Headers / Footers ↑ | Long Tiny Text ↑ | Multi Column ↑ | Old Scans ↑ | Old Scans Math ↑ | Tables ↑ |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Ki-OCR | 87.18 | 91.49 | 97.49 | 93.55 | 90.95 | 84.95 | 58.75 | 88.86 | 91.39 |
+| OXR-1.0 | 87.11 | 91.49 | 97.27 | 93.68 | 90.95 | 85.29 | 58.37 | 88.43 | 91.39 |
+
+*Source: Both OXR-1.0 and Ki-OCR results are from our local evaluation using native PDF inputs. Since we could not reproduce the 87.84 Overall score in the [official OXR benchmark report](https://github.com/SoMarkAI/OXR/blob/main/docs/benchmark.md) in our local evaluation environment, we report the locally evaluated results for both models under the same evaluation settings.*
 
 ## License and Attribution
 

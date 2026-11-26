@@ -14,7 +14,10 @@ Ki-OCR 是基于 [OXR-1.0](https://huggingface.co/SoMarkAI/OXR-1.0) 蒸馏得到
 
 | Model Type | Methods | Size | Overall ↑ | Text<sup>Edit</sup> ↓ | Formula<sup>CDM</sup> ↑ | Table<sup>TEDS</sup> ↑ | Table<sup>TEDS-S</sup> ↑ | Read Order<sup>Edit</sup> ↓ |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Ki-OCR | Specialized VLMs | 1.3B | **97.2812** | 0.02420 | **97.6332** | 96.6306 | 98.4685 | 0.1224 |
+| Ki-OCR | Specialized VLMs | 1.3B | 97.2812 | 0.0242 | 97.6332 | 96.6306 | 98.4685 | 0.1224 |
+| OXR-1.0 | Specialized VLMs | 1.3B | 97.1832 | 0.0251 | 97.4449 | 96.6167 | 98.4395 | 0.1214 |
+
+*结果来源：OXR-1.0 结果取自 [OXR 团队在 OmniDocBench 官方仓库提交的 Issue](https://github.com/opendatalab/OmniDocBench/issues/264)；Ki-OCR 结果取自我们的本地评测。*
 
 ## 在 OmniDocBench 上复现
 
@@ -72,6 +75,26 @@ DATA="/path/to/OmniDocBench" bash eval_omnidocbench.sh
 将 `/path/to/OmniDocBench` 替换为实际数据集路径，该目录应包含 `OmniDocBench.json` 和 `images/`。
 
 脚本自动完成全量推理，并调用 [OmniDocBench 官方评测工具](https://github.com/opendatalab/OmniDocBench) 进行评分。Markdown 预测文件、详细评分文件及 `summary.json` 均保存在运行结束时输出的评测目录（`omnidocbench_eval_*`）中。
+
+## 其他基准测试结果
+
+### DocParsingBench
+
+| Model | Overall ↑ | Text ↑ | Formula ↑ | Table ↑ |
+| --- | ---: | ---: | ---: | ---: |
+| Ki-OCR | 88.41 | 90.98 | 87.12 | 80.21 |
+| OXR-1.0 | 87.76 | 90.60 | 85.76 | 80.04 |
+
+*结果来源：OXR-1.0 结果取自 [OXR 官方基准测试报告](https://github.com/SoMarkAI/OXR/blob/main/docs/benchmark.md)；Ki-OCR 结果取自我们的本地评测。*
+
+### olmOCR-bench
+
+| Model | Overall ↑ | ArXiv Math ↑ | Baseline ↑ | Headers / Footers ↑ | Long Tiny Text ↑ | Multi Column ↑ | Old Scans ↑ | Old Scans Math ↑ | Tables ↑ |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Ki-OCR | 87.18 | 91.49 | 97.49 | 93.55 | 90.95 | 84.95 | 58.75 | 88.86 | 91.39 |
+| OXR-1.0 | 87.11 | 91.49 | 97.27 | 93.68 | 90.95 | 85.29 | 58.37 | 88.43 | 91.39 |
+
+*结果来源：OXR-1.0 和 Ki-OCR 结果均取自我们的本地评测，使用原生 PDF 输入。由于我们未能在本地评测环境中复现 [OXR 官方基准测试报告](https://github.com/SoMarkAI/OXR/blob/main/docs/benchmark.md)中 87.84 的 Overall 分数，因此这里采用两个模型在相同评测设置下获得的本地评测结果。*
 
 ## 许可证与致谢
 
